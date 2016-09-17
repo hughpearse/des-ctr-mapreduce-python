@@ -1,6 +1,8 @@
 # des-ctr-mapreduce-python
 DES encryption in CTR mode using MapReduce
 
+DES encryption is now a deprecated encryption standard but is often used as an example to introduce students to block ciphers. Students also learn the modes of encryption such as ECB, CBC, CTR etc... It is often said that CTR mode is a method of using a block cipher as a stream cipher as the mode of operation is parallelizable, meaning the ciphertexts are independent of one another. To demonstrate this I have created a MapReduce task to split a ciphertext into blocks and encrypt them in CTR mode on MapReduce clients. This means given a 1TB file as input it would be feasible to connect a dozen or so machines and encrypt it within a few minutes, if not seconds.
+
 ##Usage:
 To run the traditional DES alforithm in CTR mode execute:
 ```
