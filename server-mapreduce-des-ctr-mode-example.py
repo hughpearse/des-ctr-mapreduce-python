@@ -32,7 +32,7 @@ def reducefn(k, vs):
     #nonce = Random.new().read(DES.block_size/2)
     #ctr = Counter.new(DES.block_size*8/2, prefix=nonce)
     nonce = "0000"
-    ctr = nonce + "\0"*(  8-( len( struct.pack("!I",vs[0]) ) + len(nonce) )  ) + struct.pack("!I",vs[0])
+    ctr = nonce + struct.pack("!I",vs[0])
     def getctr():
         print k + ", " + str(ctr)
         return str(ctr)
