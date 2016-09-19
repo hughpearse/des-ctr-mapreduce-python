@@ -41,7 +41,7 @@ cipher_text = des.encrypt(plain_text)
 
 print "key: " + key
 print "nonce: " + nonce
-print "plaintext with padding: " + plain_text
+print "plaintext with padding (note nulls dont display): " + plain_text
 print "ciphertext (base 16 encoded): " + str(map(''.join, zip(*[iter(base64.b16encode(cipher_text))]*16)))
 print "plaintext: " + removePadding(des2.decrypt(cipher_text))
 

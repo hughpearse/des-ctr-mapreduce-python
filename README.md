@@ -12,9 +12,10 @@ It should output the following:
 plaintext: AAAABBBBCCCCDDDDAAAABBBBCCCC
 key: 12345678
 nonce: 0000
-plaintext with padding: AAAABBBBCCCCDDDDAAAABBBBCCCC04
+plaintext with padding (note nulls dont display): AAAABBBBCCCCDDDDAAAABBBBCCCC04
 ciphertext (base 16 encoded): ['128586D247D57223', '7956BEE384628B55', '4610924B971D9157', 'D5C2B8B530FBB0D4']
 plaintext: AAAABBBBCCCCDDDDAAAABBBBCCCC
+
 ```
 To run the MapReduce DES algorithm in CTR mode execute the following:
 ```
