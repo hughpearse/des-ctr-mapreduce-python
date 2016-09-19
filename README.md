@@ -24,7 +24,7 @@ second execute any number of clients:
  python ./mincemeat.py -p changeme localhost 
 
 Then the server should output the following:
-{'CCCC\x00\x0004': ['\xd5\xc2\xb8\xb50\xfb\xb0\xd4', 4], 'AAAABBBB': ['\x12\x85\x86\xd2G\xd5r#', 1, 'F\x10\x92K\x97\x1d\x91W', 3], 'CCCCDDDD': ['yV\xbe\xe3\x84b\x8bU', 2]}
+ciphertext (base 16 encoded):  {1: ("['128586D247D57223']",), 2: ("['7956BEE384628B55']",), 3: ("['4610924B971D9157']",), 4: ("['D5C2B8B530FBB0D4']",)}
 
 ```
 

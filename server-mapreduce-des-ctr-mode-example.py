@@ -28,7 +28,7 @@ def reducefn(k, vs):
     from Crypto import Random
     from Crypto.Util import Counter
     import struct
-    result = []
+    result = {}
     key = "12345678"
     #nonce = Random.new().read(DES.block_size/2)
     #ctr = Counter.new(DES.block_size*8/2, prefix=nonce)
@@ -39,7 +39,7 @@ def reducefn(k, vs):
             return str(ctr)
         des = DES.new(key, DES.MODE_CTR, counter=getctr)
         cipher_text = des.encrypt(k)
-        result += (cipher_text,offsetval)
+        result[offsetval] = cipher_text
     #print "k: " + k + ", vs: " + str(vs) + ", ctr: " + ctr + "cipher_text: " + cipher_text
     return result
 
@@ -49,6 +49,11 @@ s.mapfn = mapfn
 s.reducefn = reducefn
 
 results = s.run_server(password="changeme")
-print results
-#print "ciphertext (base 16 encoded): " + str(map(''.join, zip(*[iter(base64.b16encode(''.join(results.values())))]*16)))
+#print results
 
+print "ciphertext (base 16 encoded): " ,
+sorted_results = {}
+for kp,vp in results.iteritems():
+    for kc,vc in vp.iteritems():
+        sorted_results[kc] = str(map(''.join, zip(*[iter(base64.b16encode(vc))]*16))),
+print sorted_results
