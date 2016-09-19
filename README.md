@@ -9,9 +9,9 @@ To run the traditional DES alforithm in CTR mode execute:
 python ./des-ctr-mode-traditional.py
 
 It should output the following:
+plaintext: AAAABBBBCCCCDDDDAAAABBBBCCCC
 key: 12345678
 nonce: 0000
-plaintext: AAAABBBBCCCCDDDDAAAABBBBCCCC4444
 plaintext with padding: AAAABBBBCCCCDDDDAAAABBBBCCCC4444
 ciphertext (base 16 encoded): ['128586D247D57223', '7956BEE384628B55', '4610924B971D9157', 'D5C2B8B504CFB4D4']
 plaintext: AAAABBBBCCCCDDDDAAAABBBBCCCC
