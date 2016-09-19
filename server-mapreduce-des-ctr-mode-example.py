@@ -1,9 +1,6 @@
 #!/usr/bin/env python
 import mincemeat
 import base64
-from Crypto.Cipher import DES
-from Crypto import Random
-from Crypto.Util import Counter
 
 def addPadding(data):
         length = 16 - (len(data) % 16)
@@ -18,10 +15,7 @@ def chunks(longdata, n):
     for i in range(0, len(longdata), n):
         yield longdata[i:i + n]
 
-#key = "12345678"
 plain_text = 'AAAABBBBCCCC'
-#nonce = Random.new().read(DES.block_size/2)
-
 plain_text = addPadding(plain_text)
 datasource = dict(enumerate(list(chunks(plain_text, 8)), start=1))
 
