@@ -7,11 +7,12 @@ from Crypto.Util import Counter
 
 def addPadding(data):
         length = 16 - (len(data) % 16)
-        data += bytes(length)*length
+        data += "\x00"*(length-2)
+        data += str(length).zfill(2)
         return data
 
 def removePadding(data):
-        return data[:-int(data[-1])]
+        return data[:-int(data[-2:])]
 
 key = "12345678"
 

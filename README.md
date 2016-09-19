@@ -12,8 +12,8 @@ It should output the following:
 plaintext: AAAABBBBCCCCDDDDAAAABBBBCCCC
 key: 12345678
 nonce: 0000
-plaintext with padding: AAAABBBBCCCCDDDDAAAABBBBCCCC4444
-ciphertext (base 16 encoded): ['128586D247D57223', '7956BEE384628B55', '4610924B971D9157', 'D5C2B8B504CFB4D4']
+plaintext with padding: AAAABBBBCCCCDDDDAAAABBBBCCCC04
+ciphertext (base 16 encoded): ['128586D247D57223', '7956BEE384628B55', '4610924B971D9157', 'D5C2B8B530FBB0D4']
 plaintext: AAAABBBBCCCCDDDDAAAABBBBCCCC
 ```
 To run the MapReduce DES algorithm in CTR mode execute the following:
@@ -24,7 +24,7 @@ second execute any number of clients:
  python ./mincemeat.py -p changeme localhost 
 
 Then the server should output the following:
-{'AAAABBBB': ['\x12\x85\x86\xd2G\xd5r#', 1, 'F\x10\x92K\x97\x1d\x91W', 3], 'CCCCDDDD': ['yV\xbe\xe3\x84b\x8bU', 2], 'CCCC4444': ['\xd5\xc2\xb8\xb5\x04\xcf\xb4\xd4', 4]}
+{'CCCC\x00\x0004': ['\xd5\xc2\xb8\xb50\xfb\xb0\xd4', 4], 'AAAABBBB': ['\x12\x85\x86\xd2G\xd5r#', 1, 'F\x10\x92K\x97\x1d\x91W', 3], 'CCCCDDDD': ['yV\xbe\xe3\x84b\x8bU', 2]}
 
 ```
 
