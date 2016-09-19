@@ -32,7 +32,7 @@ ctr2 = Counter.new(DES.block_size*8/2, prefix=nonce)
 des2 = DES.new(key, DES.MODE_CTR, counter=ctr2)
 
 
-plain_text = 'AAAABBBBCCCC'
+plain_text = 'AAAABBBBCCCCDDDDAAAABBBBCCCC'
 plain_text = addPadding(plain_text)
 
 cipher_text = des.encrypt(plain_text)

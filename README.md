@@ -11,10 +11,10 @@ python ./des-ctr-mode-traditional.py
 It should output the following:
 key: 12345678
 nonce: 0000
-plaintext: AAAABBBBCCCC4444
-plaintext with padding: AAAABBBBCCCC4444
-ciphertext (base 16 encoded): ['128586D247D57223', '7956BEE3F412FB25']
-plaintext: AAAABBBBCCCC
+plaintext: AAAABBBBCCCCDDDDAAAABBBBCCCC4444
+plaintext with padding: AAAABBBBCCCCDDDDAAAABBBBCCCC4444
+ciphertext (base 16 encoded): ['128586D247D57223', '7956BEE384628B55', '4610924B971D9157', 'D5C2B8B504CFB4D4']
+plaintext: AAAABBBBCCCCDDDDAAAABBBBCCCC
 ```
 To run the MapReduce DES algorithm in CTR mode execute the following:
 ```
@@ -24,6 +24,8 @@ second execute any number of clients:
  python ./mincemeat.py -p changeme localhost 
 
 Then the server should output the following:
-ciphertext (base 16 encoded): ['128586D247D57223', '7956BEE3F412FB25']
+{'AAAABBBB': ['\x12\x85\x86\xd2G\xd5r#', 1, 'F\x10\x92K\x97\x1d\x91W', 3], 'CCCCDDDD': ['yV\xbe\xe3\x84b\x8bU', 2], 'CCCC4444': ['\xd5\xc2\xb8\xb5\x04\xcf\xb4\xd4', 4]}
 
 ```
+
+The server divides the data into blocks and clients are issued unique blocks of plaintext and a list of counter values. Each client then encrypts a unique plaintext block while paramaterising in each of the counter values. Once all the corresponding ciphertexts are generated the ciphertexts are then loaded into a tuple with their counter value (offset in blocks) and a list of the ciphertext-counter tuples are returned.
