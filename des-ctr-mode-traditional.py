@@ -6,7 +6,7 @@ from Crypto import Random
 from Crypto.Util import Counter
 
 def addPadding(data):
-        length = 16 - (len(data) % 16)
+        length = 8 - (len(data) % 8)
         data += "\x00"*(length-2)
         data += str(length).zfill(2)
         return data
